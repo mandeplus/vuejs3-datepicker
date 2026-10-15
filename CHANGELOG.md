@@ -1,4 +1,4 @@
-# [1.2.0](https://github.com/mandeplus/vuejs3-datepicker/compare/v1.1.3...v1.2.0) (unreleased)
+# [1.2.0](https://github.com/mandeplus/vuejs3-datepicker/compare/v1.1.3...v1.2.0) (2026-10-15)
 
 First release under the `@mandeplus` scope. Earlier entries are from upstream `vuejs3-datepicker`.
 
