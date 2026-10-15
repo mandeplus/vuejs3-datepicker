@@ -42,7 +42,7 @@
 import { defineComponent, computed, PropType } from 'vue';
 import { makeDateUtils } from './utils/DateUtils';
 
-interface IMonths {
+export interface IMonths {
   month: number;
   timestamp: number;
   isSelected: boolean;

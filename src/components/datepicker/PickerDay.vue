@@ -48,7 +48,7 @@
 import { defineComponent, computed, PropType } from 'vue';
 import { makeDateUtils } from './utils/DateUtils';
 
-interface IDays {
+export interface IDays {
   date: number;
   timestamp: number;
   isSelected: boolean;

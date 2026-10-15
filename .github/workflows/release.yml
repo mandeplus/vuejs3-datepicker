@@ -1,0 +1,57 @@
+# Publishes to npm on GitHub Release.
+# Authenticates with npm trusted publishing (OIDC). Requires a trusted publisher
+# configured for this workflow in the npm package settings.
+
+name: Release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      # Trusted publishing requires npm >= 11.5.1
+      - run: npm install -g npm@^11.5.1
+
+      - run: npm ci
+
+      - name: Check tag matches package.json version
+        run: |
+          PKG_VERSION="v$(node -p "require('./package.json').version")"
+          if [ "$PKG_VERSION" != "$GITHUB_REF_NAME" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match package.json version $PKG_VERSION"
+            exit 1
+          fi
+
+      - run: npm test
+
+      - run: npm ci --prefix playground
+      - run: npx playwright install --with-deps chromium
+        working-directory: playground
+      - run: npm --prefix playground run test:e2e
+
+      - name: Check if this version is already on npm
+        id: npm
+        run: |
+          VERSION="$(node -p "require('./package.json').version")"
+          if [ -n "$(npm view "@mandeplus/vuejs3-datepicker@$VERSION" version 2>/dev/null)" ]; then
+            echo "Version $VERSION is already on npm. Publish will be skipped."
+            echo "published=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # prepublishOnly runs lint and build:lib
+      - run: npm publish
+        if: steps.npm.outputs.published != 'true'

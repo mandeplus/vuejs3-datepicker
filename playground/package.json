@@ -1,0 +1,22 @@
+{
+  "name": "vuejs3-datepicker-playground",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "install:package": "node scripts/install-package.mjs",
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "build:lib": "npm --prefix .. run build:lib",
+    "test:e2e": "npm run build:lib && npm run install:package && npm run build && playwright test"
+  },
+  "dependencies": {
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "typescript": "^5.9.0",
+    "vite": "^6.4.0",
+    "vue-tsc": "^2.2.0"
+  }
+}

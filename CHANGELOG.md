@@ -1,3 +1,19 @@
+# [1.2.0](https://github.com/mandeplus/vuejs3-datepicker/compare/v1.1.3...v1.2.0) (unreleased)
+
+First release under the `@mandeplus` scope. Earlier entries are from upstream `vuejs3-datepicker`.
+
+### Bug Fixes
+
+* **utc:** pass `use-utc` to all picker views, fixing selection of the previous day or month ([9a965de](https://github.com/mandeplus/vuejs3-datepicker/commit/9a965de7fbeb4cfe97f04e19ec55e6e34c773365))
+* **disabled-dates:** restore `disabledDates.ranges` with inclusive bounds ([9a965de](https://github.com/mandeplus/vuejs3-datepicker/commit/9a965de7fbeb4cfe97f04e19ec55e6e34c773365))
+
+### Build
+
+* rename package to `@mandeplus/vuejs3-datepicker`
+* move `vue` to `peerDependencies`
+* remove `prismjs` and `vite-plugin-dts` from runtime dependencies
+* ship TypeScript declarations
+
 ## [1.1.3](https://github.com/shubhadip/vuejs3-datepicker/compare/v1.1.2...v1.1.3) (2024-05-14)
 
 

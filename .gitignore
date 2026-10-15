@@ -7,3 +7,7 @@ demo/
 example/*.js
 coverage/
 .eslintcache
+build/
+playground/dist/
+playground/test-results/
+playground/playwright-report/

@@ -1,8 +1,8 @@
-# Vue 3 Datepicker
+# @mandeplus/vuejs3-datepicker
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/9289e513-2cf9-4b4f-a3a5-f265d691c26c/deploy-status)](https://app.netlify.com/sites/vuejs3-datepicker/deploys)
+Datepicker component for Vue 3.
 
-A datepicker Vue component. Compatible with Vue 3 Only
+Fork of [shubhadip/vuejs3-datepicker](https://github.com/shubhadip/vuejs3-datepicker) 1.1.3, maintained by M&E Plus. Changes from upstream are listed in [CHANGELOG.md](CHANGELOG.md).
 
 - [Demo](#demo)
 - [Install](#install)
@@ -17,18 +17,18 @@ To view demo examples locally clone the repo and run `npm install && npm run dev
 
 ## Demo
 
-To view a demo online: <https://vuejs3-datepicker.netlify.app/>
+Upstream demo: <https://vuejs3-datepicker.netlify.app/> (does not include changes from this fork).
 
 ## Install
 
 ``` bash
-npm install vuejs3-datepicker --save
+npm install @mandeplus/vuejs3-datepicker
 
-yarn add vuejs3-datepicker
+yarn add @mandeplus/vuejs3-datepicker
 ```
 
 ``` javascript
-import Datepicker from 'vuejs3-datepicker';
+import Datepicker from '@mandeplus/vuejs3-datepicker';
 
 export default {
   // ...
@@ -230,7 +230,15 @@ export const data = {
 };
 
 ```
-Contributors:
+## Releasing
+
+1. Update `version` in `package.json` and `CHANGELOG.md`.
+2. Merge to `master`.
+3. Publish a GitHub Release tagged `v<version>`. The `Release` workflow tests, builds and publishes to npm.
+
+## Credits
+
+Original authors:
 
 * [Shubhadip Maity](https://github.com/shubhadip)
 * [Vivek Singh](https://github.com/viveksinghup)

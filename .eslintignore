@@ -14,3 +14,4 @@ vite.config.project.ts
 vitest.config.ts
 postcss.config.cjs
 *.d.ts
+playground/
